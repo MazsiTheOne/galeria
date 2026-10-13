@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banner Galéria</title>
+<style>
+:root { color-scheme: dark; --bg:#032f37; --panel:#06434b; --mint:#44efbd; --cyan:#48d9f4; --text:#e9fbff; --muted:#a9d5dc; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:Inter,Segoe UI,Arial,sans-serif; color:var(--text); background:radial-gradient(ellipse at 50% 0%,#07515a 0%,var(--bg) 62%); min-height:100vh; }
+header { padding:38px 22px 24px; max-width:1200px; margin:auto; }
+.eyebrow { color:var(--mint); text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; font-weight:800; }
+h1 { margin:.45rem 0 .5rem; font-size:clamp(2rem,5vw,3.3rem); }
+header p { margin:0; color:var(--muted); max-width:680px; line-height:1.6; }
+.toolbar { max-width:1200px; padding:0 22px 22px; margin:auto; display:flex; gap:10px; flex-wrap:wrap; }
+.filter { border:1px solid #27747d; background:#073d46; color:var(--text); padding:10px 15px; border-radius:999px; cursor:pointer; }
+.filter.active,.filter:hover { background:linear-gradient(110deg,var(--cyan),var(--mint)); color:#00333b; border-color:transparent; }
+.gallery { max-width:1200px; padding:0 22px 48px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:20px; }
+.card { background:rgba(4,57,65,.88); border:1px solid #17616b; border-radius:18px; overflow:hidden; box-shadow:0 14px 35px #001c2180; }
+.preview { display:block; width:100%; padding:0; border:0; background:#032f37; cursor:zoom-in; }
+.preview img { width:100%; aspect-ratio: 2.86 / 1; object-fit:cover; display:block; }
+.card-info { padding:15px 16px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+h2 { font-size:1rem; margin:0; }
+.download { color:#00333b; background:linear-gradient(110deg,var(--cyan),var(--mint)); border-radius:999px; text-decoration:none; padding:10px 14px; white-space:nowrap; font-weight:750; }
+.download:hover { filter:brightness(1.08); }
+footer { color:var(--muted); text-align:center; padding:0 20px 28px; font-size:.85rem; }
+dialog { width:min(1100px,94vw); max-width:none; border:1px solid #27747d; border-radius:16px; padding:12px; background:#032f37; color:var(--text); }
+dialog::backdrop { background:#00171ddc; }
+.modal-head { display:flex; justify-content:space-between; align-items:center; padding:3px 4px 12px; }
+.close { background:#0b5059; color:white; border:1px solid #27747d; border-radius:9px; padding:8px 12px; cursor:pointer; }
+#largeImage { width:100%; height:auto; display:block; border-radius:8px; }
+@media(max-width:520px) { header { padding-top:26px; } .card-info { align-items:flex-start; flex-direction:column; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Saját gyűjtemény</div>
+  <h1>Banner Galéria</h1>
+  <p>A bannereid egy helyen. Nyisd meg az előnézetet, vagy töltsd le az eredeti képet egy kattintással.</p>
+</header>
+<nav class="toolbar" aria-label="Kategóriák">
+  <button class="filter active" data-filter="all">Összes kép</button>
+  <button class="filter" data-filter="profil">Profil</button><button class="filter" data-filter="szép kártya / cafeteria">SZÉP kártya / cafeteria</button><button class="filter" data-filter="nyugdíjpénztár">Nyugdíjpénztár</button><button class="filter" data-filter="kötelező biztosítás (kgfb)">Kötelező biztosítás (KGFB)</button><button class="filter" data-filter="casco – első változat">CASCO – első változat</button><button class="filter" data-filter="casco – alternatív változat">CASCO – alternatív változat</button>
+</nav>
+<main class="gallery">
+
+      <article class="card" data-category="profil">
+        <button class="preview" type="button" aria-label="Nagy előnézet: Profil" data-src="images/01-a_clean_modern_3d_3d_illustration_style_digital.png" data-title="Profil">
+          <img src="images/01-a_clean_modern_3d_3d_illustration_style_digital.png" alt="Profil banner" loading="lazy">
+        </button>
+        <div class="card-info">
+          <h2>Profil</h2>
+          <a class="download" href="images/01-a_clean_modern_3d_3d_illustration_style_digital.png" download>Letöltés ↓</a>
+        </div>
+      </article>
+    
+
+      <article class="card" data-category="szép kártya / cafeteria">
+        <button class="preview" type="button" aria-label="Nagy előnézet: SZÉP kártya / cafeteria" data-src="images/02-wide_cinematic_digital_3d_cg_illustration_on_a_da.png" data-title="SZÉP kártya / cafeteria">
+          <img src="images/02-wide_cinematic_digital_3d_cg_illustration_on_a_da.png" alt="SZÉP kártya / cafeteria banner" loading="lazy">
+        </button>
+        <div class="card-info">
+          <h2>SZÉP kártya / cafeteria</h2>
+          <a class="download" href="images/02-wide_cinematic_digital_3d_cg_illustration_on_a_da.png" download>Letöltés ↓</a>
+        </div>
+      </article>
+    
+
+      <article class="card" data-category="nyugdíjpénztár">
+        <button class="preview" type="button" aria-label="Nagy előnézet: Nyugdíjpénztár" data-src="images/03-wide_clean_high_quality_3d_illustrative_digital.png" data-title="Nyugdíjpénztár">
+          <img src="images/03-wide_clean_high_quality_3d_illustrative_digital.png" alt="Nyugdíjpénztár banner" loading="lazy">
+        </button>
+        <div class="card-info">
+          <h2>Nyugdíjpénztár</h2>
+          <a class="download" href="images/03-wide_clean_high_quality_3d_illustrative_digital.png" download>Letöltés ↓</a>
+        </div>
+      </article>
+    
+
+      <article class="card" data-category="kötelező biztosítás (kgfb)">
+        <button class="preview" type="button" aria-label="Nagy előnézet: Kötelező biztosítás (KGFB)" data-src="images/04-wide_cinematic_clean_3d_cg_futuristic_digital_i.png" data-title="Kötelező biztosítás (KGFB)">
+          <img src="images/04-wide_cinematic_clean_3d_cg_futuristic_digital_i.png" alt="Kötelező biztosítás (KGFB) banner" loading="lazy">
+        </button>
+        <div class="card-info">
+          <h2>Kötelező biztosítás (KGFB)</h2>
+          <a class="download" href="images/04-wide_cinematic_clean_3d_cg_futuristic_digital_i.png" download>Letöltés ↓</a>
+        </div>
+      </article>
+    
+
+      <article class="card" data-category="casco – első változat">
+        <button class="preview" type="button" aria-label="Nagy előnézet: CASCO – első változat" data-src="images/05-wide_clean_high_quality_3d_gradient_vector_illus.png" data-title="CASCO – első változat">
+          <img src="images/05-wide_clean_high_quality_3d_gradient_vector_illus.png" alt="CASCO – első változat banner" loading="lazy">
+        </button>
+        <div class="card-info">
+          <h2>CASCO – első változat</h2>
+          <a class="download" href="images/05-wide_clean_high_quality_3d_gradient_vector_illus.png" download>Letöltés ↓</a>
+        </div>
+      </article>
+    
+
+      <article class="card" data-category="casco – alternatív változat">
+        <button class="preview" type="button" aria-label="Nagy előnézet: CASCO – alternatív változat" data-src="images/06-wide_cinematic_modern_vector_3d_styled_illustrat.png" data-title="CASCO – alternatív változat">
+          <img src="images/06-wide_cinematic_modern_vector_3d_styled_illustrat.png" alt="CASCO – alternatív változat banner" loading="lazy">
+        </button>
+        <div class="card-info">
+          <h2>CASCO – alternatív változat</h2>
+          <a class="download" href="images/06-wide_cinematic_modern_vector_3d_styled_illustrat.png" download>Letöltés ↓</a>
+        </div>
+      </article>
+    
+</main>
+<footer>Banner Galéria · Egyszerű, szöveg nélküli képtároló és letöltő oldal</footer>
+<dialog id="modal">
+  <div class="modal-head"><strong id="modalTitle">Előnézet</strong><button class="close" id="closeModal">Bezárás ✕</button></div>
+  <img id="largeImage" alt="">
+</dialog>
+<script>
+const filters = document.querySelectorAll('.filter');
+const cards = document.querySelectorAll('.card');
+filters.forEach(btn => btn.addEventListener('click', () => {
+  filters.forEach(b => b.classList.toggle('active', b === btn));
+  const filter = btn.dataset.filter;
+  cards.forEach(card => {
+    const cat = card.dataset.category;
+    card.hidden = filter !== 'all' && cat !== filter;
+  });
+}));
+const modal = document.getElementById('modal');
+document.querySelectorAll('.preview').forEach(btn => btn.addEventListener('click', () => {
+  document.getElementById('largeImage').src = btn.dataset.src;
+  document.getElementById('largeImage').alt = btn.dataset.title;
+  document.getElementById('modalTitle').textContent = btn.dataset.title;
+  modal.showModal();
+}));
+document.getElementById('closeModal').addEventListener('click', () => modal.close());
+modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+</script>
+</body>
+</html>
